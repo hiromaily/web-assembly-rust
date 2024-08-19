@@ -4,4 +4,4 @@ dev:
 
 .PHONY: install-wasm-pkg
 install-wasm-pkg:
-	npm i ../crates/hello-wasm/public/pkg-bundler
+	npm i ../crates/gen-hyimage-wasm/public/pkg-bundler

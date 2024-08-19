@@ -6,7 +6,7 @@ use wasm_bindgen::prelude::*;
 // that generates image.
 #[wasm_bindgen]
 pub fn generate_image(r: u8, g: u8, b: u8, a: u8) -> Vec<u8> {
-    let block_size = 16;
+    let block_size = 16; // this size changes generated image size
     let obj_width = block_size * 21;
     let obj_height = block_size * 21;
 

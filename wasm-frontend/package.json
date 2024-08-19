@@ -19,6 +19,7 @@
     "vite": "^5.4.1"
   },
   "dependencies": {
+    "gen-hyimage-wasm": "file:../crates/gen-hyimage-wasm/public/pkg-bundler",
     "hello-wasm": "file:../hello-wasm/public/pkg-bundler",
     "vite-plugin-top-level-await": "^1.4.4",
     "vite-plugin-wasm": "^3.3.0"

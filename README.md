@@ -45,7 +45,7 @@ npm install
 npm run dev
 
 # install bundled wasm at hello-wasm
-npm i ../hello-wasm/public/pkg-bundler
+npm i ../crates/gen-hyimage-wasm/public/pkg-bundler
 ```
 
 - needs [vite-plugin-wasm](https://www.npmjs.com/package/vite-plugin-wasm)
