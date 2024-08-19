@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wasm Image Generator</title>
+</head>
+<body>
+    <h1>Wasm Image Generator</h1>
+    <button id="generate-button">Generate Image</button>
+    <br>
+    <img id="generated-image" alt="Generated Image" />
+
+    <script type="module">
+        import init, { generate_image } from './pkg/gen_hyimage_wasm.js';
+
+        async function run() {
+            await init();
+
+            document.getElementById('generate-button').addEventListener('click', () => {
+                // Generate the image from Wasm
+                const imageBytes = generate_image();
+
+                // Convert the image bytes to a Blob and display it as an image
+                const blob = new Blob([imageBytes], { type: 'image/png' });
+                const url = URL.createObjectURL(blob);
+                
+                const imgElement = document.getElementById('generated-image');
+                imgElement.src = url;
+            });
+        }
+
+        run();
+    </script>
+</body>
+</html>

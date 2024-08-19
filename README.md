@@ -26,6 +26,16 @@ wasm-pack build --target web
 
 ## Frontend part by Vite with Svelte and Typescript
 
+- preparation wasm for frontend
+
+```sh
+# in crates/hello-wasm
+# build wasm as bundler which can be installed by npm
+wasm-pack build --out-dir public/pkg-bundler --target bundler
+```
+
+- create frontend
+
 ```sh
 # create project
 npm create vite@latest
