@@ -1,16 +1,18 @@
 # web-assembly-rust
 
-## Example
+It generates my `HY` logo on wasm by passing RGBA parameters.
 
-- [Refereces: Compiling from Rust to WebAssembly](https://developer.mozilla.org/en-US/docs/WebAssembly/Rust_to_Wasm)
+![screen shot](./images/vite-svelte-wasm.png "screen shot")
+
+## How to create wasm project
 
 ```sh
 cd crates
 
 # create project
-cargo new --lib hello-wasm
+cargo new --lib gen-hyimage-wasm
 
-cd hello-wasm
+cd gen-hyimage-wasm
 
 # add wasm-bindgen
 cargo add wasm-bindgen
@@ -68,3 +70,7 @@ export default defineConfig({
   plugins: [svelte(), wasm(), topLevelAwait()],
 });
 ```
+
+## References
+
+- [Refereces: Compiling from Rust to WebAssembly](https://developer.mozilla.org/en-US/docs/WebAssembly/Rust_to_Wasm)
