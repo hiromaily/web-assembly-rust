@@ -7,24 +7,45 @@
 </head>
 <body>
     <h1>Wasm Image Generator</h1>
+
+    <label for="red">R:</label>
+    <input type="number" id="red" value="255" min="0" max="255">
+    <label for="green">G:</label>
+    <input type="number" id="green" value="0" min="0" max="255">
+    <label for="blue">B:</label>
+    <input type="number" id="blue" value="0" min="0" max="255">
+
     <button id="generate-button">Generate Image</button>
+    <br>
     <br>
     <img id="generated-image" alt="Generated Image" />
 
     <script type="module">
         import init, { generate_image } from './pkg/gen_hyimage_wasm.js';
 
+        function validateRGB(value) {
+            if (isNaN(value)) return 0;
+            if (value < 0) return 0;
+            if (value > 255) return 255;
+            return value;
+        }
+
         async function run() {
             await init();
 
             document.getElementById('generate-button').addEventListener('click', () => {
+                const r = validateRGB(parseInt(document.getElementById('red').value));
+                const g = validateRGB(parseInt(document.getElementById('green').value));
+                const b = validateRGB(parseInt(document.getElementById('blue').value));
+
                 // Generate the image from Wasm
-                const imageBytes = generate_image();
+                const imageBytes = generate_image(r, g, b);
 
                 // Convert the image bytes to a Blob and display it as an image
                 const blob = new Blob([imageBytes], { type: 'image/png' });
                 const url = URL.createObjectURL(blob);
                 
+                // Set image
                 const imgElement = document.getElementById('generated-image');
                 imgElement.src = url;
             });
