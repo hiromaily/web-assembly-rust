@@ -21,6 +21,7 @@
   "dependencies": {
     "gen-hyimage-wasm": "file:../crates/gen-hyimage-wasm/public/pkg-bundler",
     "hello-wasm": "file:../hello-wasm/public/pkg-bundler",
+    "svelte-awesome-slider": "^1.1.2",
     "vite-plugin-top-level-await": "^1.4.4",
     "vite-plugin-wasm": "^3.3.0"
   }
